@@ -1,2 +1,2 @@
-# Informatica5IB
+# Informatica 5IB
 Repository creata per scopi didattici
