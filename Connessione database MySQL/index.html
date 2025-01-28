@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Database</title>
+</head>
+<body>
+    <h1>Gestione Database</h1>
+
+    <form action="visualizzazzione.php" method="get">
+        <button type="submit" name="visualizza">Visualizza</button>
+    </form>
+
+    <hr>
+
+    <form action="inserimento.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <label for="id">ID:</label>
+        <input type="number" name="id" id="id" required>
+
+        <label for="countryCode">Country Code:</label>
+        <input type="text" name="countryCode" id="countryCode" required>
+
+        <label for="district">District:</label>
+        <input type="text" name="district" id="district" required>
+
+        <label for="population">Population:</label>
+        <input type="number" name="population" id="population" required>
+
+        <button type="submit" name="inserisci">Inserisci</button>
+    </form>
+    
+    <form action="modifica.php" method="post">
+        <label for="id">ID della città da modificare:</label>
+        <input type="number" name="id" id="id" required>
+
+        <label for="nome">Nuovo Nome:</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <label for="countryCode">Nuovo Country Code:</label>
+        <input type="text" name="countryCode" id="countryCode" required>
+
+        <label for="district">Nuovo District:</label>
+        <input type="text" name="district" id="district" required>
+
+        <label for="population">Nuova Population:</label>
+        <input type="number" name="population" id="population" required>
+
+        <button type="submit" name="modifica">Modifica</button>
+    </form>
+
+    <form action="eliminazione.php" method="post">
+        <label for="id">ID della città da cancellare:</label>
+        <input type="number" name="id" id="id" required>
+        <button type="submit" name="cancella">Cancella</button>
+    </form>
+
+</body>
+</html>
