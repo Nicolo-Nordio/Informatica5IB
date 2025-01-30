@@ -1,0 +1,24 @@
+-- Query A: Elenco delle attività disponibili in una data città il mercoledì
+SELECT a.nome_attivita, p.nome AS palestra, a.giorno_settimana, a.orario, 
+       a.posti_disponibili, a.prezzo
+FROM attivita a
+JOIN palestre p ON a.id_palestra = p.id_palestra
+WHERE p.citta = 'Milano' AND a.giorno_settimana = 'Mercoledi'
+ORDER BY p.nome;
+
+-- Query B: Importo totale delle prenotazioni pagate dagli abbonati nel mese di aprile
+SELECT p.nome AS palestra, SUM(a.prezzo) AS importo_totale
+FROM prenotazioni pr
+JOIN attivita a ON pr.id_attivita = a.id_attivita
+JOIN palestre p ON a.id_palestra = p.id_palestra
+WHERE MONTH(pr.data_prenotazione) = 4 AND p.nome = 'Palestra A'
+GROUP BY p.nome;
+
+-- Query C: Classifica annuale delle palestre di una certa città, ordinata per numero di attività prenotate
+SELECT p.nome AS palestra, COUNT(pr.id_prenotazione) AS numero_prenotazioni
+FROM palestre p
+JOIN attivita a ON p.id_palestra = a.id_palestra
+JOIN prenotazioni pr ON a.id_attivita = pr.id_attivita
+WHERE p.citta = 'Roma' AND YEAR(pr.data_prenotazione) = YEAR(CURDATE())
+GROUP BY p.nome
+ORDER BY numero_prenotazioni DESC;
